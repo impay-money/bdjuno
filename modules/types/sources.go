@@ -43,8 +43,10 @@ import (
 	localstakingsource "github.com/forbole/bdjuno/v5/modules/staking/source/local"
 	remotestakingsource "github.com/forbole/bdjuno/v5/modules/staking/source/remote"
 
+	wasmtypes "github.com/CosmWasm/wasmd/x/wasm/types"
 	wasmsource "github.com/forbole/bdjuno/v5/modules/wasm/source"
 	localwasmsource "github.com/forbole/bdjuno/v5/modules/wasm/source/local"
+	remotewasmsource "github.com/forbole/bdjuno/v5/modules/wasm/source/remote"
 )
 
 type Sources struct {
@@ -128,5 +130,6 @@ func buildRemoteSources(cfg *remote.Details) (*Sources, error) {
 		MintSource:     remotemintsource.NewSource(source, minttypes.NewQueryClient(source.GrpcConn)),
 		SlashingSource: remoteslashingsource.NewSource(source, slashingtypes.NewQueryClient(source.GrpcConn)),
 		StakingSource:  remotestakingsource.NewSource(source, stakingtypes.NewQueryClient(source.GrpcConn)),
+		WasmSource:     remotewasmsource.NewSource(source, wasmtypes.NewQueryClient(source.GrpcConn)),
 	}, nil
 }

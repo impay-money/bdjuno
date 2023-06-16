@@ -105,7 +105,7 @@ func (m *Module) HandleMsgInstantiateContract(index int, tx *juno.Tx, msg *wasmt
 	if err != nil {
 		return fmt.Errorf("error while decoding result data: %s", err)
 	}
-
+	
 	// Get the contract info
 	contractInfo, err := m.source.GetContractInfo(tx.Height, contractAddress)
 	if err != nil {
