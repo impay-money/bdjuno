@@ -19,7 +19,7 @@ parsing:
     parse_old_blocks: true
     parse_genesis: true
 database:
-    url: postgres://user_user:123_pass@75.119.137.73:5432/bdjuno?sslmode=disable&search_path=public
+    url: postgres://user_user:123_pass@localhost:5432/bdjuno?sslmode=disable&search_path=public
     max_open_connections: 1
     max_idle_connections: 1
     partition_size: 100000
